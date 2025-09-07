@@ -1,0 +1,112 @@
+<style>
+    .gua-inner{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .gua-img-div{
+    display: flex;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+  }
+  
+  #BlinkingGuaranteeIcon{
+      margin: 0px;
+      line-height: 28px;
+      color: {{ settings.blinktext_TextColor }} !important;
+      display: flex;
+      align-items: center !important;
+    }
+    #BlinkingGuaranteeIcon .icon {
+      position: relative;
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
+    #BlinkingGuaranteeIcon .icon img {
+      width: 12px;
+      margin: 0px 0px 2px 6px;
+      visibility:hidden;
+    }
+    #BlinkingGuaranteeIcon .icon{
+    background-color:{{ settings.blinktext_IconColor }};
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0px 12px 0px 6px;
+    left: 0px;
+  }
+  #BlinkingGuaranteeIcon .icon::before {
+    content: " ";
+    background-color: {{ settings.blinktext_IconColor }};
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: all 0.5s;
+    animation: mymove 2s infinite;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+  }
+  @keyframes mymove {
+    0% {
+        transform: scale(.35);
+        box-shadow: 0 0 {{ settings.blinktext_IconColor }};
+        opacity: 0.4;
+    }
+    70%{
+      transform: scale(.35);
+      box-shadow: 0 0 0 10px {{ settings.blinktext_IconColor }};
+      opacity: 0.4;
+    }
+    100%{
+        transform: scale(.35);
+        box-shadow: 0 0 {{ settings.blinktext_IconColor }};
+        opacity: 0.4;
+    }
+  }
+  .BlinkingGuaranteeText{
+    display: inline-block;
+    vertical-align: super;
+    margin-left: 2px;
+  }
+</style>
+
+
+
+
+
+{% if settings.show_productdetails %}
+  <div id="BlinkingGuaranteeIcon" class="single-gurentee-item">
+	<div class="icon">
+        	<img src="//cdn.shopify.com/s/files/1/0759/0379/5515/files/Ibtisam_Bari_1.png?v=1708028025">
+	</div>
+	<div class="BlinkingGuaranteeText">
+		<p style="margin:0px; font-size:15px;">{{ settings.blinktext_Text }}</p>
+	</div>
+  </div>
+
+    <div class="cus-gua-div" style='margin:7px 0px 25px 0px;'>
+    <div class="gua-inner">
+      <div class="gua-img-div"><IMG class="cus-gua-img" SRC='{{ settings.cusgua_img1 | image_url }}' ALIGN='left' style='width:{{ settings.cusgua_imgsize1 }};' /></div>
+      <p class="cus-gua-p"  style='line-height:21px; color:#000000; margin:0px; font-size:15px;'>{{ settings.cusgua_text1 }}</p>
+    </div>
+    <div class="gua-inner">
+      <div class="gua-img-div"><IMG class="cus-gua-img" SRC='{{ settings.cusgua_img2 | image_url }}' ALIGN='left' style='width:{{ settings.cusgua_imgsize2 }};' /></div>
+      <p class="cus-gua-p"  style='line-height:21px; color:#000000; margin:0px; font-size:15px;'>{{ settings.cusgua_text2 }}</p>
+    </div>
+      <div class="gua-inner">
+      <div class="gua-img-div"><IMG class="cus-gua-img" SRC='{{ settings.cusgua_img3 | image_url }}' ALIGN='left' style='width:{{ settings.cusgua_imgsize3 }};' /></div>
+      <p class="cus-gua-p"  style='line-height:21px; color:#000000; margin:0px; font-size:15px;'>{{ settings.cusgua_text3 }}</p>
+    </div>
+  </div>
+   
+{% endif %}
+
+
+
+
+
+
